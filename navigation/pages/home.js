@@ -11,14 +11,22 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
+import { Stackapp } from '../navigation';
+// import Testfun from './pages/text';
 
 import LinearGradient from 'react-native-linear-gradient';
 
 
 
-const Homefunc = () => {
+const Homefunc = ({navigation, route}) => {
+
+  function Nextstep (){
+    navigation.navigate('stack')
+ 
+  }
   return (
     <View>
+     
       <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} >
 
       <View style={{  color: 'white', height: 130 }}>
@@ -95,7 +103,7 @@ const Homefunc = () => {
           height: 260
         }}>
           <View style={{justifyContent:'center',alignItems:'center' , paddingTop:10}}>
-            <Text style={{fontSize:20 , color:'red'}}>Create your<Text style={{fontWeight:'bold'}}> own pizza</Text></Text>
+            <Text style={{fontSize:20 , color:'red'}}>Create your<Text style={{fontWeight:'bold'}} onPress={Nextstep}> own pizza</Text></Text>
             <Text style={{fontSize:10}}>THE COST WILL DEPEND ON YOUR CUSTOMIZATION</Text>
           </View>
           <View style={{backgroundColor:'white'

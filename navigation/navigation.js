@@ -6,19 +6,83 @@ import * as React from 'react';
 import { View, Text, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import 'react-native-gesture-handler';
 import Homefun from './pages/home';
 import Aboutfun from './pages/about';
 import Testfun from './pages/text';
+
 import CustomDrawer from './customdrawer';
+import Stackfuner from './pages/stack';
+import Crustfun from './pages/crust';
+import Toppingfun from './pages/toppings';
 
 // import Iicon from 'react-native-vector-icons/Feather'
 // import EIcon from 'react-native-vector-icons/Feather';
 
 
+const Stack = createNativeStackNavigator();
+
+
+function Toppingsapp (){
+  return(
+
+    <Stack.Navigator initialRouteName='crust'>
+        <Stack.Screen name="crust" component={Crustfun}
+        options={{
+          headerShown:true
+        }}
+         />
+    
+
+        <Stack.Screen name="toppings" component={Toppingfun} />
+    
+  </Stack.Navigator>
+    )
+}
+function Crustapp (){
+  return(
+
+    <Stack.Navigator initialRouteName='stack'>
+        <Stack.Screen name="stack" component={Stackfuner}
+        options={{
+          headerShown:true
+        }}
+         />
+    
+
+        <Stack.Screen name="crust" component={Toppingsapp}
+        options={{
+          headerShown:false
+        }} />
+    
+  </Stack.Navigator>
+    )
+}
+
+export function Stackapp() {
+  return (
+    
+      <Stack.Navigator initialRouteName='home'>
+        <Stack.Screen name="home" component={Homefun}
+        options={{
+          headerShown:true
+        }}
+         />
+        {/* <Stack.Screen name="stack" component={Stackfuner} /> */}
+        <Stack.Screen name="stack" component={Crustapp} 
+        options={{
+          headerShown:false
+        }}/>
+      </Stack.Navigator>
+    
+  );
+}
+
+
 const Drawer = createDrawerNavigator();
 
-function Navapp() {
+export function Navapp() {
   return (
     <NavigationContainer>
       <Drawer.Navigator initialRouteName='Home'
@@ -34,15 +98,12 @@ function Navapp() {
       }
       >
         
-        {/* <Drawer.Screen name='zubair' options={{
-          height:40
-        }} /> */}
-
-        <Drawer.Screen name="Home" component={Homefun}
+        <Drawer.Screen name="Home" component={Stackapp}
           
           options={{
           drawerType:'back',
-          drawerActiveTintColor:'orange'
+          drawerActiveTintColor:'orange',
+          headerShown:false
        
         }}
          />
@@ -71,4 +132,9 @@ function Navapp() {
   );
 }
 
-export default Navapp;
+
+
+
+
+
+
