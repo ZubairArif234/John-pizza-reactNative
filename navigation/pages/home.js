@@ -12,11 +12,16 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+import LinearGradient from 'react-native-linear-gradient';
+
+
 
 const Homefunc = () => {
   return (
     <View>
-      <View style={{ backgroundColor: '#FFA360', color: 'white', height: 130 }}>
+      <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} >
+
+      <View style={{  color: 'white', height: 130 }}>
         <View style={{ marginLeft: 25, marginTop: 15 }}>
           <View>
             <Text style={{ color: 'white' }}>Hi Jaykey!</Text>
@@ -26,6 +31,7 @@ const Homefunc = () => {
           </View>
         </View>
       </View>
+      </LinearGradient>
       <View style={{ justifyContent: "center", alignItems: "center" }}>
 
         <View style={{
@@ -52,21 +58,23 @@ const Homefunc = () => {
             <Text style={{ color: '#F5313F', fontSize: 18, fontWeight: 'bold' }}>Reorder again?</Text>
             <Text style={{ fontSize: 10, color: '#6D6E9C' }}>SMALL, THIN CRUST, TOMATOES, BASIL, CHEESE</Text>
             <Text style={{ fontSize: 20, color: '#6D6E9C', marginBottom: 20 }}>$ 12</Text>
-            <TouchableOpacity style={{
-              backgroundColor: '#FFA360', width: 123, borderBottomLeftRadius: 20,
-              shadowColor: "red",
+            <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{width: 123, borderBottomLeftRadius: 20,borderBottomRightRadius: 20,
+               borderTopLeftRadius: 20, borderTopRightRadius: 20,
+               shadowColor: ["#F5313F","#FFA360"],
               shadowOffset: {
                 width: 0,
                 height: 6,
               },
               shadowOpacity: 0.39,
               shadowRadius: 8.30,
-
+              
               elevation: 13,
-              borderBottomRightRadius: 20, borderTopLeftRadius: 20, borderTopRightRadius: 20, height: 38, alignItems: 'center', justifyContent: 'center',
-            }}>
+               height: 38, alignItems: 'center', justifyContent: 'center',}} >
+
+            <TouchableOpacity >
               <Text style={{ flex: 1, justifyContent: 'center', alignItems: 'center', margin: 9, color: 'white', fontWeight: 'bold' }}>Add To Cart</Text>
             </TouchableOpacity>
+              </LinearGradient>
           </View>
         </View>
       </View>
