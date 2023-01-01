@@ -3,7 +3,7 @@
 
 
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import {
   SafeAreaView,
@@ -27,11 +27,27 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import LinearGradient from 'react-native-linear-gradient';
 import { Button } from 'bootstrap';
-
+import EIcon from 'react-native-vector-icons/Entypo';
 
   
 
 const Crustfun = ( {navigation ,route}) => {
+
+    const navigate = navigation.navigate;
+    useEffect(() => {
+        navigation.setOptions({
+          
+          headerRight: () => (
+            <EIcon
+              onPress={() => navigate('Home')}
+              size={30}
+              color="orange"
+              name="home"
+            />
+          ),
+         
+        });
+      }, []);
 
     const crust =[
         {
@@ -109,7 +125,7 @@ const Crustfun = ( {navigation ,route}) => {
                 data={crust}
                 renderItem={({item})=>{
                     return(
-<LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{width:70,margin:20 ,
+<LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#ffffff', '#ffffff']} style={{width:70,margin:20 ,
               borderBottomRightRadius:20
             , borderBottomLeftRadius:20
             , borderTopRightRadius:20

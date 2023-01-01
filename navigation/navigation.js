@@ -16,12 +16,48 @@ import CustomDrawer from './customdrawer';
 import Stackfuner from './pages/stack';
 import Crustfun from './pages/crust';
 import Toppingfun from './pages/toppings';
+import Finalpizzafun from './pages/finalpizza';
+import Checkfun from './pages/check';
+
 
 // import Iicon from 'react-native-vector-icons/Feather'
 // import EIcon from 'react-native-vector-icons/Feather';
 
 
 const Stack = createNativeStackNavigator();
+
+function Checkout (){
+  return(
+
+    <Stack.Navigator initialRouteName='finalpizza'>
+        <Stack.Screen name="finalpizza" component={Finalpizzafun}
+        options={{
+          headerShown:true
+        }}
+         />
+        <Stack.Screen name="check" component={Checkfun} />
+  </Stack.Navigator>
+    )
+
+}
+function Finalpizza (){
+  return(
+
+    <Stack.Navigator initialRouteName='toppings'>
+        <Stack.Screen name="toppings" component={Toppingfun}
+        options={{
+          headerShown:true
+        }}
+         />
+        <Stack.Screen name="finalpizza" component={Checkout}
+        options={{
+          headerShown:false
+        }}  />
+  </Stack.Navigator>
+    )
+
+}
+
 
 
 function Toppingsapp (){
@@ -35,7 +71,10 @@ function Toppingsapp (){
          />
     
 
-        <Stack.Screen name="toppings" component={Toppingfun} />
+        <Stack.Screen name="toppings" component={Finalpizza}
+         options={{
+          headerShown:false
+        }}  />
     
   </Stack.Navigator>
     )
@@ -66,7 +105,8 @@ export function Stackapp() {
       <Stack.Navigator initialRouteName='home'>
         <Stack.Screen name="home" component={Homefun}
         options={{
-          headerShown:true
+          headerShown:true,
+          
         }}
          />
         {/* <Stack.Screen name="stack" component={Stackfuner} /> */}

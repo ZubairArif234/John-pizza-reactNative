@@ -112,7 +112,7 @@ const Stackfuner = ( {navigation ,route}) => {
                 data={size}
                 renderItem={({item})=>{
                     return(
-<LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{width:70,margin:20 ,
+<LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#ffffff', '#ffffff']} style={{width:70,margin:20 ,
               borderBottomRightRadius:20
             , borderBottomLeftRadius:20
             , borderTopRightRadius:20
