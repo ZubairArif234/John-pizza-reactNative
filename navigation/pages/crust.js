@@ -3,7 +3,7 @@
 
 
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   SafeAreaView,
@@ -31,17 +31,20 @@ import EIcon from 'react-native-vector-icons/Entypo';
 
   
 
-const Crustfun = ( {navigation ,route}) => {
+const Crustfun = ( {route,navigation }) => {
+  const [btn ,setbtn]= useState('thin')
+const {data} = route.params
 
     const navigate = navigation.navigate;
     useEffect(() => {
+      console.log(data)
         navigation.setOptions({
           
           headerRight: () => (
             <EIcon
-              onPress={() => navigate('Home')}
+              onPress={() =>navigation.navigate('Home')}
               size={30}
-              color="orange"
+              color="black"
               name="home"
             />
           ),
@@ -62,7 +65,7 @@ const Crustfun = ( {navigation ,route}) => {
     ]
  
     function Crust (){
-        navigation.navigate('toppings')
+        navigation.navigate('toppings', {datacrust:btn,datasize:data})
      
       }
 
@@ -75,7 +78,12 @@ const Crustfun = ( {navigation ,route}) => {
                 <Text style={{fontSize:10 , color:'white'}}>SIZE, CRUST, TOPPING</Text>
             </View>
             <View style={{alignItems:'flex-end' ,bottom:55 , right:10}}>
-                <Text style={{fontSize:25 , color:'white', fontWeight:'bold'}}>$12.00</Text>
+                <Text style={{fontSize:25 , color:'white', fontWeight:'bold'}}>
+                  {(btn=='thin') ?
+                 " $2.00":"$4.00"
+                
+                }
+                  </Text>
             </View>
             
             <View style={{backgroundColor:'#ffffff60', width:320, height:320, alignSelf:'center' 
@@ -103,7 +111,11 @@ const Crustfun = ( {navigation ,route}) => {
             , borderBottomLeftRadius:10
             , borderTopRightRadius:10
             , borderTopLeftRadius:10,
-                }}><Text style={{color:'#6D6E9C'}}>+$2.00</Text></View>
+                }}><Text style={{color:'#6D6E9C'}}>
+                  {(btn=='thin')?
+                  "+$2.00":"+$4.00"
+                }
+                  </Text></View>
             </View>
         </LinearGradient>
         <View style={{ backgroundColor:'#FFFFFF60' , width:320 , alignSelf:'center' , top:190,
@@ -117,7 +129,7 @@ const Crustfun = ( {navigation ,route}) => {
             <Text style={{color:'#6D6E9C', fontSize:20 , paddingTop:10}}> Choose your <Text style={{fontWeight:'bold'}}>crust</Text></Text>
             </View>
             <View style={{alignItems:'center'}} >
-                <FlatList
+                {/* <FlatList
                 keyExtractor={(key)=>{
                    return key.index
                 }}
@@ -135,7 +147,37 @@ const Crustfun = ( {navigation ,route}) => {
 </LinearGradient>
                     ) 
                 }}
-                />
+                /> */}
+                <View style={{flexDirection:'row'}}>
+
+<TouchableOpacity style={{  width:70 ,alignItems:'center',justifyContent:'center'}} >
+    {(btn=='thin')?
+    <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{width:70,margin:20 ,
+        borderBottomRightRadius:20
+      , borderBottomLeftRadius:20
+      , borderTopRightRadius:20
+      , borderTopLeftRadius:20}}>
+    <Text style={{textAlign:'center',padding:5}} >{crust[0].crust}</Text>
+    </LinearGradient>:<Text onPress={() => setbtn('thin')}>{crust[0].crust}</Text>
+    
+}
+</TouchableOpacity> 
+<TouchableOpacity style={{  width:70 ,alignItems:'center',justifyContent:'center'}} >
+    {(btn=='thick')?
+    <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{width:70,margin:20 ,
+        borderBottomRightRadius:20
+      , borderBottomLeftRadius:20
+      , borderTopRightRadius:20
+      , borderTopLeftRadius:20}}>
+    <Text style={{textAlign:'center',padding:5}}>{crust[1].crust}</Text>
+    </LinearGradient>:<Text onPress={() => {setbtn('thick')}}>{crust[1].crust}</Text>
+    
+}
+</TouchableOpacity> 
+
+{/* <TouchableOpacity style={{  width:70 ,alignItems:'center', padding:5}} ><Text onPress={()=> setbtn('med')}>{size[1].size}</Text></TouchableOpacity>
+<TouchableOpacity style={{  width:70 ,alignItems:'center', padding:5}} ><Text onPress={()=> setbtn('large')}>{size[2].size}</Text></TouchableOpacity> */}
+</View>
             </View>
         </View>
         <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{top:195 , height:50}}>

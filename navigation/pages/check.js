@@ -13,12 +13,26 @@ import {
 } from 'react-native';
 import { Stackapp } from '../navigation';
 // import Testfun from './pages/text';
+import { useEffect } from 'react';
+import EIcon from 'react-native-vector-icons/Entypo';
 
 import LinearGradient from 'react-native-linear-gradient';
 
 
 
 const Checkfun = ({ navigation, route }) => {
+    useEffect(()=>{
+        navigation.setOptions({
+
+            headerRight: () => (
+                <EIcon
+                onPress={() =>navigation.navigate('home')}
+                size={28}
+                color="black"
+                name="home"
+                />)
+            })
+    },[])
 
     function Nextstep() {
         navigation.navigate('stack')

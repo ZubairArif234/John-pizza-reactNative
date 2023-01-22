@@ -13,12 +13,33 @@ import {
 } from 'react-native';
 import { Stackapp } from '../navigation';
 // import Testfun from './pages/text';
-
+import { useEffect } from 'react';
+import EIcon from 'react-native-vector-icons/Entypo';
 import LinearGradient from 'react-native-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
+import { useState } from 'react';
+// import { useNavigation } from 'react-navigation-hooks';
 
 
 
 const Homefunc = ({navigation, route}) => {
+  const [headericon , setheadericon] = useState(false)
+  const { navigate }=useNavigation()
+  useEffect(() => {
+    
+      navigation.setOptions({
+        headerShown:headericon,
+        headerRight: () => (
+          <EIcon
+            onPress={() =>navigate(CustomDrawer)}
+            size={30}
+            color="black"
+            name="home"
+          />
+        ),
+       
+      });
+    }, []);
 
   function Nextstep (){
     navigation.navigate('stack')

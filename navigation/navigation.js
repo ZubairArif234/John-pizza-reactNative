@@ -11,12 +11,13 @@ import 'react-native-gesture-handler';
 import Homefun from './pages/home';
 import Aboutfun from './pages/about';
 import Testfun from './pages/text';
-
+import EIcon from 'react-native-vector-icons/Entypo';
 import CustomDrawer from './customdrawer';
 import Stackfuner from './pages/stack';
 import Crustfun from './pages/crust';
 import Toppingfun from './pages/toppings';
 import Finalpizzafun from './pages/finalpizza';
+
 import Checkfun from './pages/check';
 
 
@@ -26,78 +27,78 @@ import Checkfun from './pages/check';
 
 const Stack = createNativeStackNavigator();
 
-function Checkout (){
-  return(
+// function Checkout (){
+//   return(
 
-    <Stack.Navigator initialRouteName='finalpizza'>
-        <Stack.Screen name="finalpizza" component={Finalpizzafun}
-        options={{
-          headerShown:true
-        }}
-         />
-        <Stack.Screen name="check" component={Checkfun} />
-  </Stack.Navigator>
-    )
+//     <Stack.Navigator initialRouteName='finalpizza'>
+//         <Stack.Screen name="finalpizza" component={Finalpizzafun}
+//         options={{
+//           headerShown:true
+//         }}
+//          />
+//         <Stack.Screen name="check" component={Checkfun} />
+//   </Stack.Navigator>
+//     )
 
-}
-function Finalpizza (){
-  return(
+// }
+// function Finalpizza (){
+//   return(
 
-    <Stack.Navigator initialRouteName='toppings'>
-        <Stack.Screen name="toppings" component={Toppingfun}
-        options={{
-          headerShown:true
-        }}
-         />
-        <Stack.Screen name="finalpizza" component={Checkout}
-        options={{
-          headerShown:false
-        }}  />
-  </Stack.Navigator>
-    )
+//     <Stack.Navigator initialRouteName='toppings'>
+//         <Stack.Screen name="toppings" component={Toppingfun}
+//         options={{
+//           headerShown:true
+//         }}
+//          />
+//         <Stack.Screen name="finalpizza" component={Checkout}
+//         options={{
+//           headerShown:false
+//         }}  />
+//   </Stack.Navigator>
+//     )
 
-}
+// }
 
 
 
-function Toppingsapp (){
-  return(
+// function Toppingsapp (){
+//   return(
 
-    <Stack.Navigator initialRouteName='crust'>
-        <Stack.Screen name="crust" component={Crustfun}
-        options={{
-          headerShown:true
-        }}
-         />
+//     <Stack.Navigator initialRouteName='crust'>
+//         <Stack.Screen name="crust" component={Crustfun}
+//         options={{
+//           headerShown:true
+//         }}
+//          />
     
 
-        <Stack.Screen name="toppings" component={Finalpizza}
-         options={{
-          headerShown:false
-        }}  />
+//         <Stack.Screen name="toppings" component={Finalpizza}
+//          options={{
+//           headerShown:false
+//         }}  />
     
-  </Stack.Navigator>
-    )
-}
-function Crustapp (){
-  return(
+//   </Stack.Navigator>
+//     )
+// }
+// function Crustapp (){
+//   return(
 
-    <Stack.Navigator initialRouteName='stack'>
-        <Stack.Screen name="stack" component={Stackfuner}
-        options={{
-          headerShown:true
-        }}
-         />
+//     <Stack.Navigator initialRouteName='stack'>
+//         <Stack.Screen name="stack" component={Stackfuner}
+//         options={{
+//           headerShown:true
+//         }}
+//          />
     
 
-        <Stack.Screen name="crust" component={Toppingsapp}
-        options={{
-          headerShown:false
-        }} />
+//         <Stack.Screen name="crust" component={Toppingsapp}
+//         options={{
+//           headerShown:false
+//         }} />
     
-  </Stack.Navigator>
-    )
-}
+//   </Stack.Navigator>
+//     )
+// }
 
 export function Stackapp() {
   return (
@@ -106,15 +107,65 @@ export function Stackapp() {
         <Stack.Screen name="home" component={Homefun}
         options={{
           headerShown:true,
+          title:'Pizza John',
+          drawerStatusBarAnimation:'slide',
+          headerTitleAlign:'center',
+          // headerLeft: () => (
+          //   <EIcon
+          //     onPress={() =>navigate('DrawerOpen')}
+          //     size={30}
+          //     color="black"
+          //     name="home"
+          //   />
+          // ),
           
-        }}
+          
+        }
+      }
+        
          />
         {/* <Stack.Screen name="stack" component={Stackfuner} /> */}
-        <Stack.Screen name="stack" component={Crustapp} 
+        <Stack.Screen name="stack" component={Stackfuner} 
         options={{
-          headerShown:false
+          headerShown:true,
+          title:'Pizza John',
+          drawerStatusBarAnimation:'slide',
+          headerTitleAlign:'center'
+         
+
         }}/>
+         <Stack.Screen name="crust" component={Crustfun}
+        options={{
+          headerShown:true,
+          title:'Pizza John',
+          drawerStatusBarAnimation:'slide',
+          headerTitleAlign:'center'
+        }} />
+      <Stack.Screen name="toppings" component={Toppingfun}
+      options={{
+       headerShown:true,
+       title:'Pizza John',
+          drawerStatusBarAnimation:'slide',
+          headerTitleAlign:'center'
+     }}  />
+      <Stack.Screen name="finalpizza" component={Finalpizzafun}
+        options={{
+          headerShown:true,
+          title:'Pizza John',
+          drawerStatusBarAnimation:'slide',
+          headerTitleAlign:'center'
+        }}  />
+         <Stack.Screen name="check" component={Checkfun} 
+         options={{
+          headerShown:true,
+          title:'Pizza John',
+          drawerStatusBarAnimation:'slide',
+          headerTitleAlign:'center'
+        }} />
+
+
       </Stack.Navigator>
+      
     
   );
 }
@@ -125,14 +176,16 @@ const Drawer = createDrawerNavigator();
 export function Navapp() {
   return (
     <NavigationContainer>
+      
       <Drawer.Navigator initialRouteName='Home'
       drawerContent={props => <CustomDrawer {...props}/>}
       screenOptions={{
         drawerStyle: {
-          backgroundColor: '#c6cbef',
+          
           borderTopRightRadius:20,
           borderBottomRightRadius:20,
           // paddingTop:180
+          // headerShown:true
         },
       }
       }
@@ -141,9 +194,11 @@ export function Navapp() {
         <Drawer.Screen name="Home" component={Stackapp}
           
           options={{
-          drawerType:'back',
-          drawerActiveTintColor:'orange',
-          headerShown:false
+            drawerType:'back',
+            title:'Pizza John',
+            drawerStatusBarAnimation:'slide',
+            headerTitleAlign:'center',
+            headerShown:true
        
         }}
          />

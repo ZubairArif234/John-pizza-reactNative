@@ -19,6 +19,7 @@ import {
   FlatList,
 } from 'react-native';
 
+import { useState,useEffect } from 'react';
 import {
   Colors,
   DebugInstructions,
@@ -28,36 +29,53 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import LinearGradient from 'react-native-linear-gradient';
 import { Button } from 'bootstrap';
-
+import EIcon from 'react-native-vector-icons/Entypo';
 
   
 
-const Toppingfun = ( {navigation ,route}) => {
-    
+const Toppingfun = ( {route,navigation}) => {
+    useEffect(()=>{
+        navigation.setOptions({
+
+            headerRight: () => (
+                <EIcon
+                onPress={() =>navigation.navigate('home')}
+                size={28}
+                color="black"
+                name="home"
+                />)
+            })
+    },[])
+    const {datacrust , datasize} = route.params
     // const  [ pizzaimage , setpizzaimage] =(false)
+
     const toppingsobj =[
         {
             index:'1',
             toppings:'Pepperoni',
             image :require("../../assets/pepperoni.png"),
+            imagepiz: require("../../assets/pepro.png")
             // imagepizza :setpizzaimage(require("../../assets/pepperonipizza.png"))
         },
         {
             index:'2',
             toppings:'Mashroom',
             image : require("../../assets/mashroom.png"),
+            imagepiz: require("../../assets/pepro.png")
             // imagepizza : setpizzaimage(require("../../assets/mashroomspizza.png")),
         },
         {
             index:'3',
             toppings:'Olive',
             image :require("../../assets/olive.jpg"),
+            imagepiz: require("../../assets/pepro.png")
             // imagepizza :setpizzaimage(require("../../assets/olivepizza.png")),
         },
         {
             index:'4',
             toppings:'Onions',
             image :require("../../assets/onions.jpg"),
+            imagepiz: require("../../assets/pepro.png")
             // imagepizza :setpizzaimage(require("../../assets/onionspizza.png")),
         },
         {
@@ -74,15 +92,16 @@ const Toppingfun = ( {navigation ,route}) => {
         },
     ]
  
+    const [topnames ,settopnames] = useState('')
     function Toppings (){
-        navigation.navigate('finalpizza')
+        navigation.navigate('finalpizza' , {datacrust:datacrust, datasize:datasize})
      
       }
 
   return (
    <View>
     <View>
-        <LinearGradient tart={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{height:240}}>
+        <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{height:240}}>
             <View style={{padding:10, width:250 }}>
                 <Text style={{fontSize:25 , color:'white'}}>Create Your Pizza </Text> 
                 <Text style={{fontSize:10 , color:'white'}}>SIZE, CRUST, TOPPING</Text>
@@ -107,7 +126,9 @@ const Toppingfun = ( {navigation ,route}) => {
                 , borderTopRightRadius:150
                 , borderTopLeftRadius:150,}}
                 >
-                    <Image style={{alignSelf:'center', bottom:15}} source={require('../../assets/mediumpizza.png')}/>
+                    <Image style={{alignSelf:'center', bottom:15}} source={
+                      require("../../assets/mediumpizza.png")
+                    }/>
 
                 </View>
                 {/* <View style={{top:55 ,backgroundColor:'#a0a8cc', width:50 ,
@@ -160,7 +181,7 @@ borderBottomRightRadius:20
 , borderTopLeftRadius:20,
 alignSelf:'center'
 }}>
-    <TouchableOpacity ></TouchableOpacity>
+    <TouchableOpacity  ></TouchableOpacity>
 </View>
                         </View>
                     ) 
