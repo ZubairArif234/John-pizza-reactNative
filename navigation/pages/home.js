@@ -23,18 +23,18 @@ import { useState } from 'react';
 
 
 const Homefunc = ({navigation, route}) => {
-  const [headericon , setheadericon] = useState(false)
+  const [headericon , setheadericon] = useState(true)
   const { navigate }=useNavigation()
   useEffect(() => {
     
       navigation.setOptions({
         headerShown:headericon,
-        headerRight: () => (
+        headerLeft: () => (
           <EIcon
-            onPress={() =>navigate(CustomDrawer)}
+            onPress={() => navigation.toggleDrawer()}
             size={30}
             color="black"
-            name="home"
+            name="menu"
           />
         ),
        
@@ -46,11 +46,11 @@ const Homefunc = ({navigation, route}) => {
  
   }
   return (
-    <View>
-     
+    <View style={{flex:10 , flexDirection:'column'}}>
+     <View style={{flex:2}}>
       <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} >
 
-      <View style={{  color: 'white', height: 130 }}>
+      <View style={{  color: 'white', flex:-5,height:150 }}>
         <View style={{ marginLeft: 25, marginTop: 15 }}>
           <View>
             <Text style={{ color: 'white' }}>Hi Jaykey!</Text>
@@ -61,7 +61,8 @@ const Homefunc = ({navigation, route}) => {
         </View>
       </View>
       </LinearGradient>
-      <View style={{ justifyContent: "center", alignItems: "center" }}>
+      </View>
+      <View style={{ justifyContent: "center", alignItems: "center", flex:2}}>
 
         <View style={{
           backgroundColor: "#ffffff80",
@@ -73,7 +74,8 @@ const Homefunc = ({navigation, route}) => {
           flex: 1,
           flexDirection: 'row',
           justifyContent: 'center',
-          height: 200
+          height: 200,
+          // marginTop:20
         }}>
           <View><Image
             style={{
@@ -107,7 +109,7 @@ const Homefunc = ({navigation, route}) => {
           </View>
         </View>
       </View>
-      <View style={{justifyContent:'center',alignItems:'center'}}>
+      <View style={{justifyContent:'center',alignItems:'center', flex:4}}>
 
         <View style={{
           backgroundColor: "white",
@@ -116,7 +118,7 @@ const Homefunc = ({navigation, route}) => {
           // borderBottomRightRadius: 20,
           borderTopLeftRadius: 20,
           borderTopRightRadius: 20,
-          top: 190,
+          top: 20,
           
           
           // justifyContent: 'center',

@@ -39,8 +39,8 @@ const Checkfun = ({ navigation, route }) => {
 
     }
     return (
-        <View>
-
+<View style={{flex:10}}>
+        <View style={{flex:2.5}}>
             <LinearGradient start={{ x: 0, y: 1 }} end={{ x: 1, y: 0 }} colors={['#F5313F', '#FFA360']} >
 
                 <View style={{ color: 'white', height: 150 }}>
@@ -54,7 +54,8 @@ const Checkfun = ({ navigation, route }) => {
                     </View>
                 </View>
             </LinearGradient>
-            <View style={{ alignItems: "center" }}>
+            </View >
+            <View style={{ alignItems: "center", flex:4 }}>
 
                 <View style={{
                     backgroundColor: "#ffffff80",
@@ -103,7 +104,7 @@ const Checkfun = ({ navigation, route }) => {
                    <Text style={{fontSize:14 , paddingLeft:5 , paddingTop:0, paddingBottom:5, color:'#6D6E9C'}}>Rider will place order at your door</Text>
                     </View>
             </View>
-            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+            <View style={{ justifyContent: 'center', alignItems: 'center', flex:3 }}>
 
                 <View style={{
                     backgroundColor: "white",
@@ -112,7 +113,7 @@ const Checkfun = ({ navigation, route }) => {
                     borderBottomRightRadius: 20,
                     borderTopLeftRadius: 20,
                     borderTopRightRadius: 20,
-                    top: 40,
+                    // top: 40,
                 
 
                     height: 150
@@ -176,10 +177,8 @@ const Checkfun = ({ navigation, route }) => {
                 </View>
                 
             </View>
-           <View style={{backgroundColor:'red' , top:65}}>
-          {/* <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']}>
-            <TouchableOpacity><Text>Place order</Text></TouchableOpacity>
-          </LinearGradient> */}
+           <View style={{flex:0.8}}>
+          
           <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{ height:50}}>
             <TouchableOpacity style={{color:'#ffffff' , alignItems:'center'}} ><Text style={{top:15 , color:'#ffffff'}}>Place order</Text></TouchableOpacity>
         </LinearGradient>

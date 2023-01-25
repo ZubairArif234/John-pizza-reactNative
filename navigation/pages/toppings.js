@@ -17,6 +17,7 @@ import {
   Image,
   TouchableOpacity,
   FlatList,
+  
 } from 'react-native';
 
 import { useState,useEffect } from 'react';
@@ -30,10 +31,25 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import { Button } from 'bootstrap';
 import EIcon from 'react-native-vector-icons/Entypo';
+import CheckBox from '@react-native-community/checkbox';
 
+// const MyListItem = ({ item }) => {
+//     const [isChecked, setIsChecked] = useState(false);
+  
+//     return (
+//       <View>
+//         <Text>{item.name}</Text>
+//         <CheckBox
+//           value={isChecked}
+//           onValueChange={() => setIsChecked(!isChecked)}
+//         />
+//       </View>
+//     );
+//   }
   
 
 const Toppingfun = ( {route,navigation}) => {
+    const [toggleCheckBox, setToggleCheckBox] = useState(false)
     useEffect(()=>{
         navigation.setOptions({
 
@@ -54,28 +70,33 @@ const Toppingfun = ( {route,navigation}) => {
             index:'1',
             toppings:'Pepperoni',
             image :require("../../assets/pepperoni.png"),
-            imagepiz: require("../../assets/pepro.png")
+            imagepiz: require("../../assets/pepro.png"),
+            // [toggleCheckBox, setToggleCheckBox] = useState(false)
+            check: toggleCheckBox == 1 ? true:false
             // imagepizza :setpizzaimage(require("../../assets/pepperonipizza.png"))
         },
         {
             index:'2',
             toppings:'Mashroom',
             image : require("../../assets/mashroom.png"),
-            imagepiz: require("../../assets/pepro.png")
+            imagepiz: require("../../assets/pepro.png"),
+            check: toggleCheckBox == 2 ? true:false
             // imagepizza : setpizzaimage(require("../../assets/mashroomspizza.png")),
         },
         {
             index:'3',
             toppings:'Olive',
             image :require("../../assets/olive.jpg"),
-            imagepiz: require("../../assets/pepro.png")
+            imagepiz: require("../../assets/pepro.png"),
             // imagepizza :setpizzaimage(require("../../assets/olivepizza.png")),
+            check: toggleCheckBox == 3 ? true:false
         },
         {
             index:'4',
             toppings:'Onions',
             image :require("../../assets/onions.jpg"),
-            imagepiz: require("../../assets/pepro.png")
+            imagepiz: require("../../assets/pepro.png"),
+            check: toggleCheckBox == 4 ? true:false
             // imagepizza :setpizzaimage(require("../../assets/onionspizza.png")),
         },
         {
@@ -83,11 +104,13 @@ const Toppingfun = ( {route,navigation}) => {
             toppings:'Capsicum',
             image :require("../../assets/capsicum.jpg"),
             // imagepizza :setpizzaimage(require("../../assets/onionspizza.png")),
+            check: toggleCheckBox == 5 ? true:false
         },
         {
             index:'6',
             toppings:'Jalapeno',
             image :require("../../assets/jalapeno.jpg"),
+            check: toggleCheckBox == 6 ? true:false
             // imagepizza :setpizzaimage(require("../../assets/onionspizza.png")),
         },
     ]
@@ -99,9 +122,10 @@ const Toppingfun = ( {route,navigation}) => {
       }
 
   return (
-   <View>
-    <View>
-        <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{height:240}}>
+   
+    <View style={{flex:10 , }}>
+        <View style={{flex:7.5}}>
+        <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{height:210}}>
             <View style={{padding:10, width:250 }}>
                 <Text style={{fontSize:25 , color:'white'}}>Create Your Pizza </Text> 
                 <Text style={{fontSize:10 , color:'white'}}>SIZE, CRUST, TOPPING</Text>
@@ -141,7 +165,8 @@ const Toppingfun = ( {route,navigation}) => {
                     <Text style={{color:'#6D6E9C'}}>12"</Text></View> */}
             </View>
         </LinearGradient>
-        <View style={{ backgroundColor:'#FFFFFF60' , width:320 , alignSelf:'center' , top:170,
+        </View>
+        <View style={{ backgroundColor:'#FFFFFF60' , width:320 , alignSelf:'center' , flex:2.5,
          borderBottomRightRadius:20
          , borderBottomLeftRadius:20
          , borderTopRightRadius:20
@@ -181,7 +206,11 @@ borderBottomRightRadius:20
 , borderTopLeftRadius:20,
 alignSelf:'center'
 }}>
-    <TouchableOpacity  ></TouchableOpacity>
+    {/* <CheckBox
+     disabled={false}
+     value={item.check}
+     onValueChange={() => setToggleCheckBox(item.index)}/> */}
+     {/* <MyListItem item={item} /> */}
 </View>
                         </View>
                     ) 
@@ -189,12 +218,15 @@ alignSelf:'center'
                 />
             </View>
         </View>
-        <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{top:185 , height:50}}>
+        <View style={{flex:0.9}}>
+
+        <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{ height:51}}>
             <TouchableOpacity style={{color:'#ffffff' , alignItems:'center'}} onPress={Toppings}><Text style={{top:15 , color:'#ffffff'}}>Next</Text></TouchableOpacity>
         </LinearGradient>
+        </View>
 
     </View>
-    </View>
+    
   );
 };
 

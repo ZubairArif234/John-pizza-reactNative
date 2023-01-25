@@ -185,7 +185,7 @@ export function Navapp() {
           borderTopRightRadius:20,
           borderBottomRightRadius:20,
           // paddingTop:180
-          // headerShown:true
+          headerShown:true
         },
       }
       }
@@ -198,7 +198,8 @@ export function Navapp() {
             title:'Pizza John',
             drawerStatusBarAnimation:'slide',
             headerTitleAlign:'center',
-            headerShown:true
+            headerShown:false,
+           
        
         }}
          />

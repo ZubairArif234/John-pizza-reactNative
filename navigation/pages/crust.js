@@ -70,9 +70,10 @@ const {data} = route.params
       }
 
   return (
-   <View>
-    <View>
-        <LinearGradient tart={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{height:240}}>
+   
+    <View style={{flex:10}}>
+      <View style={{flex:8}}>
+        <LinearGradient tart={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{height:210}}>
             <View style={{padding:10, width:250 }}>
                 <Text style={{fontSize:25 , color:'white'}}>Create Your Pizza </Text> 
                 <Text style={{fontSize:10 , color:'white'}}>SIZE, CRUST, TOPPING</Text>
@@ -91,9 +92,9 @@ const {data} = route.params
             , borderBottomLeftRadius:150
             , borderTopRightRadius:150
             , borderTopLeftRadius:150,
-            top:80,
+            // top:80,
             alignItems:'center',
-            position:'absolute'
+            // position:'absolute'
             }}>
                 <View
                 style={{backgroundColor:'#ffffff', width:270, height:270, top:25
@@ -118,41 +119,25 @@ const {data} = route.params
                   </Text></View>
             </View>
         </LinearGradient>
-        <View style={{ backgroundColor:'#FFFFFF60' , width:320 , alignSelf:'center' , top:190,
+        </View>
+        <View style={{ backgroundColor:'#FFFFFF60' , width:320 , alignSelf:'center' , flex:1.5,
          borderBottomRightRadius:20
          , borderBottomLeftRadius:20
          , borderTopRightRadius:20
          , borderTopLeftRadius:20,
+         marginBottom:5
      }}>
             <View style={{alignItems:'center'}}>
 
             <Text style={{color:'#6D6E9C', fontSize:20 , paddingTop:10}}> Choose your <Text style={{fontWeight:'bold'}}>crust</Text></Text>
             </View>
             <View style={{alignItems:'center'}} >
-                {/* <FlatList
-                keyExtractor={(key)=>{
-                   return key.index
-                }}
-                horizontal
-                data={crust}
-                renderItem={({item})=>{
-                    return(
-<LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#ffffff', '#ffffff']} style={{width:70,margin:20 ,
-              borderBottomRightRadius:20
-            , borderBottomLeftRadius:20
-            , borderTopRightRadius:20
-            , borderTopLeftRadius:20}}>
-
-                        <TouchableOpacity style={{  width:70 ,alignItems:'center', padding:5}} ><Text>{item.crust}</Text></TouchableOpacity>
-</LinearGradient>
-                    ) 
-                }}
-                /> */}
-                <View style={{flexDirection:'row'}}>
+               
+                <View style={{flexDirection:'row', paddingBottom:10}}>
 
 <TouchableOpacity style={{  width:70 ,alignItems:'center',justifyContent:'center'}} >
     {(btn=='thin')?
-    <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{width:70,margin:20 ,
+    <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{width:70,margin:10 ,
         borderBottomRightRadius:20
       , borderBottomLeftRadius:20
       , borderTopRightRadius:20
@@ -164,7 +149,7 @@ const {data} = route.params
 </TouchableOpacity> 
 <TouchableOpacity style={{  width:70 ,alignItems:'center',justifyContent:'center'}} >
     {(btn=='thick')?
-    <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{width:70,margin:20 ,
+    <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{width:70,margin:10 ,
         borderBottomRightRadius:20
       , borderBottomLeftRadius:20
       , borderTopRightRadius:20
@@ -180,12 +165,15 @@ const {data} = route.params
 </View>
             </View>
         </View>
-        <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{top:195 , height:50}}>
+        <View style={{flex:0.9 }}>
+
+        <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{ height:51}}>
             <TouchableOpacity style={{color:'#ffffff' , alignItems:'center'}} onPress={Crust}><Text style={{top:15 , color:'#ffffff'}}>Next</Text></TouchableOpacity>
         </LinearGradient>
+        </View>
 
     </View>
-    </View>
+    
   );
 };
 

@@ -72,9 +72,10 @@ const Stackfuner = ( {navigation ,route}) => {
       }
 
   return (
-   <View>
-    <View>
-        <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{height:240}}>
+    
+       <View style={{flex:10 , flexDirection:'column' }}>
+        <View style={{flex:8}}>
+        <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{height:210}}>
             <View style={{padding:10, width:250 }}>
                 <Text style={{fontSize:25 , color:'white'}}>Create Your Pizza </Text> 
                 <Text style={{fontSize:10 , color:'white'}}>SIZE, CRUST, TOPPING</Text>
@@ -94,9 +95,9 @@ const Stackfuner = ( {navigation ,route}) => {
             , borderBottomLeftRadius:150
             , borderTopRightRadius:150
             , borderTopLeftRadius:150,
-            top:80,
+            // top:80,
             alignItems:'center',
-            position:'absolute'
+            // position:'absolute'
             }}>
                 <View
                 style={{backgroundColor:'#ffffff', width:270, height:270, top:25
@@ -126,11 +127,14 @@ const Stackfuner = ( {navigation ,route}) => {
                     </Text></View>
             </View>
         </LinearGradient>
-        <View style={{ backgroundColor:'#FFFFFF60' , width:320 , alignSelf:'center' , top:190,
+        </View>
+        {/* <View> */}
+        <View style={{ backgroundColor:'#FFFFFF60' , width:320 , alignSelf:'center' , flex:1.5,
          borderBottomRightRadius:20
          , borderBottomLeftRadius:20
          , borderTopRightRadius:20
          , borderTopLeftRadius:20,
+         marginBottom:5
      }}>
             <View style={{alignItems:'center'}}>
 
@@ -138,11 +142,11 @@ const Stackfuner = ( {navigation ,route}) => {
             </View>
             <View style={{alignItems:'center'}} >
                
-<View style={{flexDirection:'row'}}>
+<View style={{flexDirection:'row' }}>
 
 <TouchableOpacity style={{  width:70 ,alignItems:'center',justifyContent:'center'}} >
     {(btn=='small')?
-    <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{width:70,margin:20 ,
+    <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{width:70,margin:10,
         borderBottomRightRadius:20
       , borderBottomLeftRadius:20
       , borderTopRightRadius:20
@@ -154,7 +158,7 @@ const Stackfuner = ( {navigation ,route}) => {
 </TouchableOpacity> 
 <TouchableOpacity style={{  width:70 ,alignItems:'center',justifyContent:'center'}} >
     {(btn=='med')?
-    <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{width:70,margin:20 ,
+    <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{width:70,margin:10 ,
         borderBottomRightRadius:20
       , borderBottomLeftRadius:20
       , borderTopRightRadius:20
@@ -166,7 +170,7 @@ const Stackfuner = ( {navigation ,route}) => {
 </TouchableOpacity> 
 <TouchableOpacity style={{  width:70 ,alignItems:'center',justifyContent:'center'}} >
     {(btn=='large')?
-    <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{width:70,margin:20 ,
+    <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{width:70,margin:10 ,
         borderBottomRightRadius:20
       , borderBottomLeftRadius:20
       , borderTopRightRadius:20
@@ -183,12 +187,15 @@ const Stackfuner = ( {navigation ,route}) => {
 </View>
             </View>
         </View>
-        <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{top:195 , height:50}}>
+        <View style={{flex:0.9 }}>
+
+        <LinearGradient start={{x: 0, y: 1}} end={{x: 1, y: 0}} colors={['#F5313F', '#FFA360']} style={{ height:51}}>
             <TouchableOpacity style={{color:'#ffffff' , alignItems:'center'}} onPress={Crust}><Text style={{top:15 , color:'#ffffff'}}>Next</Text></TouchableOpacity>
         </LinearGradient>
+        </View>
 
     </View>
-    </View>
+
   );
 };
 

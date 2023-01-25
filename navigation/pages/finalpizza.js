@@ -35,8 +35,9 @@ const Finalpizzafun = ({ route, navigation }) => {
         navigation.navigate('check')
     }
     return (
-        <View>
-            <View>
+        
+            <View style={{flex:10 ,}}>
+                <View style={{flex:9.2 , }}>
                 <LinearGradient tart={{ x: 0, y: 1 }} end={{ x: 1, y: 0 }} colors={['#F5313F', '#FFA360']} style={{ height: 150 }}>
                     <View style={{ padding: 20, width: 250 }}>
                         <Image source={require('../../assets/pizzavector.png')} />
@@ -97,21 +98,15 @@ const Finalpizzafun = ({ route, navigation }) => {
                         </View>
                     </View>
                 </LinearGradient>
-                <View style={{
-                    backgroundColor: '#FFFFFF60', width: 320, alignSelf: 'center', top: 170,
-                    borderBottomRightRadius: 20
-                    , borderBottomLeftRadius: 20
-                    , borderTopRightRadius: 20
-                    , borderTopLeftRadius: 20,
-                }}>
-                    <View style={{ alignItems: 'center' }} >
-                    </View>
                 </View>
-                <LinearGradient start={{ x: 0, y: 1 }} end={{ x: 1, y: 0 }} colors={['#F5313F', '#FFA360']} style={{ top: 395, height: 50 }}>
+                
+                <View style={{flex:0.8}}>
+                <LinearGradient start={{ x: 0, y: 1 }} end={{ x: 1, y: 0 }} colors={['#F5313F', '#FFA360']} style={{ height: 51 }}>
                     <TouchableOpacity style={{ color: '#ffffff', alignItems: 'center' }} onPress={Toppings}><Text style={{ top: 15, color: '#ffffff' }}>Next</Text></TouchableOpacity>
                 </LinearGradient>
+                </View>
             </View>
-        </View>
+        
     );
 };
 
