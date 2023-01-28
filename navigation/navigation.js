@@ -21,8 +21,7 @@ import Finalpizzafun from './pages/finalpizza';
 import Checkfun from './pages/check';
 
 
-// import Iicon from 'react-native-vector-icons/Feather'
-// import EIcon from 'react-native-vector-icons/Feather';
+
 
 
 const Stack = createNativeStackNavigator();
